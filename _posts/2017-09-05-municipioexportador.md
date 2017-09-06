@@ -1,9 +1,13 @@
--markdown: kramdown
-
--kramdown:
+---
+layout: post
+title:  "Lorem Ipsum"
+date:   2014-08-31 14:36:23
+permalink: /patrick-post.html
+markdown: kramdown
+kramdown:
   input: GFM
-  
-
+---
+<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
 
 
   
