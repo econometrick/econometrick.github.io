@@ -8,7 +8,7 @@ kramdown:
   input: GFM
 ---
 
-<span class="image featured"><img src="/images/pic03.jpg" alt=""></span>
+<span class="image featured"><img src="/images/pic05.jpg" alt=""></span>
 
 
 
