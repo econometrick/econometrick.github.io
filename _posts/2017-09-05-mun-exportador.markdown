@@ -1,13 +1,19 @@
 ---
 layout: post
-title:  "Lorem Ipsum"
+title:  "Patrick Tentando Tentando"
 date:   2017-07-06 14:36:23
 permalink: /patrick-post.html
 markdown: kramdown
 kramdown:
   input: GFM
 ---
-<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
+
+<span class="image featured"><img src="/images/pic03.jpg" alt=""></span>
+
+
+
+
+Neste rápido tutorial, vamos aprender algumas das diversas possibilidades de 
 
 
   
@@ -164,14 +170,17 @@ Munic$POP        <- NULL
 
 Vamos aplicar um filtro e manter somente o ano de 2013 no banco de dados:
 
+``
 #Somente o último ano
 
 Munic2013 <- Munic[(Munic$ANO=="2013"),]
+``
 
 O data.frame Munic2013
 
 Podemos limpar a base de dados Munic da memória do computador:
 
+``
 rm(list="Munic")
 Em seguida calculamos o logaritmo de algumas variáveis.
 
@@ -185,12 +194,18 @@ Munic2013$lVA_IND    [is.na(Munic2013$lVA_IND)]    <- 0
 Munic2013$lVA_AGRO   [is.na(Munic2013$lVA_AGRO)]   <- 0
 Munic2013$lVA_SERV   [is.na(Munic2013$lVA_SERV)]   <- 0
 Munic2013$lPIB_PCAPTA[is.na(Munic2013$lPIB_PCAPTA)]<- 0
+``
+
 Em seguida criamos uma variável categórica por região. O primeiro dígito do código da UF representa a região geográfica. Vamos capturar o primeiro dígito do código da unidade da federação (COD_UF) utilizando o comando substr. Em seguida criamos os labels com os nomes de cada região geográfica.
 
+
+``
 Munic2013$REGIAO <- substr(Munic2013$COD_UF, 1, 1)
 Munic2013$REGIAO <- factor(Munic2013$REGIAO,
                            levels =c(1,2,3,4,5),
                            labels =c("Norte","Nordeste","Sudeste","Sul","Centro-Oeste"))
+``
+
 Agora vamos fazer a junção das duas bases de dados: Exportações em 2013 (Exp2013) e PIB Municipal (Munic2013). Isto é feito através do comando merge:
 
 Munic_Exp <-merge(Munic2013, Exp2013 , all.x=TRUE,by=c("COD_MUN"))
@@ -213,16 +228,22 @@ yi=1   se   exp≤ 0yi=1   se   exp≤ 0
 Munic_Exp$dummy_exp <-ifelse( Munic_Exp$EXP>0 , 1 , 0)
 Existem 1413 municípios exportadores.
 
+``
 table(Munic_Exp$dummy_exp)
    0    1 
 4157 1413
+``
 Agora vamos ajustar nosso modelo de probabilidade linear:
 
 yi=β0+β1lnvaindi+β2lnvaindi+β3lnvaservi+uiyi=β0+β1ln⁡vaindi+β2ln⁡vaindi+β3ln⁡vaservi+ui
+
+<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
 
 problin <-lm(dummy_exp ~ lVA_IND + lVA_SERV + lVA_AGRO + factor(REGIAO), data=Munic_Exp)
 O objeto problin contém os resultados do modelo de probabilidade linear. A função lm é a mesma utilizada para ajuste de um modelo de regressão linear com variável dependente quantitativa. Ao declararmos factor(REGIAO) estamos avisando para o procedimento lm que a variável de região é categórica.
 
 Vamos visualizar os parâmetros estimados através do comando summary:
 
+``
 summary(problin)
+``
