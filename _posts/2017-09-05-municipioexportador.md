@@ -3,15 +3,7 @@
 -kramdown:
   input: GFM
   
-  latexImg = function(latex){
 
-    link = paste0('http://latex.codecogs.com/gif.latex?',
-           gsub('\\=','%3D',URLencode(latex)))
-
-    link = gsub("(%..)","\\U\\1",link,perl=TRUE)
-    return(paste0('![](',link,')'))
-}
-in any inline location you can do r latexImg('a = \\frac{b}{c}') to place the image you want. note that this has to be Rmarkdown
 
 
   
