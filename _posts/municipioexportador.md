@@ -1,4 +1,21 @@
-# Município Exportador com Probabilidade Linear e Modelo Logit
+-markdown: kramdown
+
+-kramdown:
+  input: GFM
+  
+  latexImg = function(latex){
+
+    link = paste0('http://latex.codecogs.com/gif.latex?',
+           gsub('\\=','%3D',URLencode(latex)))
+
+    link = gsub("(%..)","\\U\\1",link,perl=TRUE)
+    return(paste0('![](',link,')'))
+}
+in any inline location you can do r latexImg('a = \\frac{b}{c}') to place the image you want. note that this has to be Rmarkdown
+
+
+  
+  # Município Exportador com Probabilidade Linear e Modelo Logit
 
 Neste *post* vamos aprender ajustar um modelo probabilístico para os municípios exportadores brasileiros. Vamos exemplificar utilizando o modelo de probabilidade linear e modelo logit.
 
@@ -13,11 +30,9 @@ Vamos utilizar algumas funcionalidades importantes do R.
 ## Introdução
 O modelo de *probabilidade linear* nada mais é que o método dos mínimos quadrados ordinários quando a variável dependente é binária (y=0 ou y=1).
 
+$$y_{i} = \beta_{0} + \beta_{1} x_{i}$$
 
-$$$$
-y_{i} = \beta_{0} + \beta_{1} x_{i}
-$$$$
-
+![equation](http://latex.codecogs.com/gif.latex?Concentration%3D%5Cfrac%7BTotalTemplate%7D%7BTotalVolume%7D)  
 
 \begin{equation}
 y_{i} = \beta_{0} + \beta_{1} x_{i}
@@ -33,7 +48,7 @@ y_{i} = \beta_{0} + \beta_{1} x_{i}
 \end{equation}
 or inline equations
 
-$ \sum_{\forall i}{x_i^{2}} $
+$\sum_{\forall i}{x_i^{2}}$
 
 
 Vamos utilizar os dados de PIB municipal do IBGE. Nossa variável dependente será o fato de um município ser ou não ser exportador.
@@ -69,9 +84,149 @@ Os dados de exportação contém as informações: Ano (CO_ANO), Mês de exporta
 
 Vamos agregar esta base de dados e utilizar somente o total anual exportado em 2013 por município. A agregação da base de dados por ano é feita com a função summaryBy pertencente ao pacote doBy.
 
+``
 install.packages("doBy") 
 library(doBy)
 Exp2013 <-summaryBy(VL_FOB ~ CO_MUN_GEO , data=EXP , FUN=c(sum))
-Onde VL_FOG é variável quantitativa que desejamos somar e CO_MUN_GEO é uma variável categórica contendo o código do município. A opção FUN=c(sum) indica uma operação de soma, que será repetida para cada município. Os resultados serão armazenados no data.frame “Exp2013”.
+``
+
+Onde *VL_FOG* é variável quantitativa que desejamos somar e CO_MUN_GEO é uma variável categórica contendo o código do município. A opção FUN=c(sum) indica uma operação de soma, que será repetida para cada município. Os resultados serão armazenados no data.frame “Exp2013”.
 
 Em seguida vamos renomear as variáveis do código do município e o valor total exportado. Os nomes COD_MUN e EXP são mais intuitivos.
+
+
+
+
+``
+names(Exp2013)[1]  <- "COD_MUN"
+names(Exp2013)[2]  <- "EXP"
+``
+
+
+A sintaxe acima indica que, para o data.frame Exp2013, a posição de coluna 1 receberá o nome COD_MUN e a posição de coluna 2 receberá o nome EXP.
+
+Vamos ganhar um pouco de memória excluindo a base de dados EXP:
+
+``
+rm(list="EXP")
+``
+
+Agora vamos repetir os mesmos passos para a base de PIB Municipal. Vamos baixar os dados de PIB com o comando de download e fazer a extração de arquivos ZIP	.
+
+``
+download.file(url="ftp://ftp.ibge.gov.br/Pib_Municipios/2010_2013/base/base_xls.zip",  destfile="C:/Econometria/base_xls.zip")
+unzip(zipfile="C:/Econometria/base_xls.zip" , exdir="C:/Econometria/Dados" )
+``
+
+
+Com os dados já descompactados na pasta “C:/Econometria/Dados” , vamos carregar um data.frame com as informações de PIB Municipal.
+
+``
+install.packages("readxl")
+library(readxl)
+Munic <- read_excel("C:/Learning/BlogQUORA/Dados/base.xls")
+``
+
+Vamos renomear as variáveis desse data.frame colocando nomes mais intuitivos:
+
+``
+#Nomeando as colunas
+names(Munic)[1]  <- "ANO"
+names(Munic)[2]  <- "COD_UF"
+names(Munic)[3]  <- "UF"
+names(Munic)[4]  <- "COD_MUN"
+names(Munic)[5]  <- "MUN"
+names(Munic)[6]  <- "RM"
+names(Munic)[7]  <- "COD_RM"
+names(Munic)[8]  <- "NOME_RM"
+names(Munic)[9]  <- "COD_MICRO"
+names(Munic)[10] <- "NOME_MICRO"
+names(Munic)[11] <- "VA_AGRO"
+names(Munic)[12] <- "VA_IND"
+names(Munic)[13] <- "VA_SERV"
+names(Munic)[14] <- "VA_ADMP"
+names(Munic)[15] <- "VA_TOTAL"
+names(Munic)[16] <- "IMPOSTO"
+names(Munic)[17] <- "PIB"
+names(Munic)[18] <- "POP"
+names(Munic)[19] <- "PIB_PCAPTA"
+``
+
+Muitas colunas não serão utilizadas. Vamos economizar espaço de memória eliminando algumas variáveis. Por exemplo, estabelecemos que a coluna UF dentro do data.frame Munic recebe valor NULL. Na prática a coluna UF desaparecerá do banco de dados.
+``
+Munic$UF         <- NULL
+Munic$RM         <- NULL
+Munic$COD_RM     <- NULL
+Munic$NOME_RM    <- NULL
+Munic$COD_MICRO  <- NULL
+Munic$NOME_MICRO <- NULL
+Munic$VA_ADMP    <- NULL
+Munic$IMPOSTO    <- NULL
+Munic$PIB        <- NULL
+Munic$POP        <- NULL
+``
+
+Vamos aplicar um filtro e manter somente o ano de 2013 no banco de dados:
+
+#Somente o último ano
+
+Munic2013 <- Munic[(Munic$ANO=="2013"),]
+
+O data.frame Munic2013
+
+Podemos limpar a base de dados Munic da memória do computador:
+
+rm(list="Munic")
+Em seguida calculamos o logaritmo de algumas variáveis.
+
+Munic2013$lPIB_PCAPTA<- log(Munic2013$PIB_PCAPTA ,base=exp(1))
+Munic2013$lVA_AGRO   <- log(Munic2013$VA_AGRO+1  ,base=exp(1))
+Munic2013$lVA_IND    <- log(Munic2013$VA_IND     ,base=exp(1))
+Munic2013$lVA_SERV   <- log(Munic2013$VA_SERV    ,base=exp(1))
+Ao calcular o logaritmo é possível termos gerado alguns valores nulos (“NA”). Abaixo eliminamos os valores NA, substituindo-os por zero:
+
+Munic2013$lVA_IND    [is.na(Munic2013$lVA_IND)]    <- 0
+Munic2013$lVA_AGRO   [is.na(Munic2013$lVA_AGRO)]   <- 0
+Munic2013$lVA_SERV   [is.na(Munic2013$lVA_SERV)]   <- 0
+Munic2013$lPIB_PCAPTA[is.na(Munic2013$lPIB_PCAPTA)]<- 0
+Em seguida criamos uma variável categórica por região. O primeiro dígito do código da UF representa a região geográfica. Vamos capturar o primeiro dígito do código da unidade da federação (COD_UF) utilizando o comando substr. Em seguida criamos os labels com os nomes de cada região geográfica.
+
+Munic2013$REGIAO <- substr(Munic2013$COD_UF, 1, 1)
+Munic2013$REGIAO <- factor(Munic2013$REGIAO,
+                           levels =c(1,2,3,4,5),
+                           labels =c("Norte","Nordeste","Sudeste","Sul","Centro-Oeste"))
+Agora vamos fazer a junção das duas bases de dados: Exportações em 2013 (Exp2013) e PIB Municipal (Munic2013). Isto é feito através do comando merge:
+
+Munic_Exp <-merge(Munic2013, Exp2013 , all.x=TRUE,by=c("COD_MUN"))
+Onde all.x=TRUE implica que a base de dados resultante terá a mesma dimensão do data.frame Munic2013, ou seja, a base de dados Munic2013 é a base “dominante” neste merge. O comando by=c("COD_MUN") diz para o R que existe uma variável com o mesmo nome nas duas bases, e que as linhas com o mesmo COD_MUN serão agrupadas.
+
+Quando mergeamos as duas bases de dados, muitas informações faltantes são produzidas. Podemos abrir o data.frame e observar que algumas células da coluna EXP recebem valor NA ("not available"). Vamos substituir valores faltantes (NA) por zero com o comando:
+
+``
+#Substituindo "NA" por zero
+Munic_Exp[is.na(Munic_Exp)] <- 0
+``
+
+Agora vamos criar uma variável binária com o comando ifelse. Está será a nossa variável dependente. O primeiro argumento do ifelse é uma condição, se um minicipio possui valores de exportações estritamente maiores que zero. O segundo argumento diz que dummy_exp recebe 1 caso a condição EXP>0 seja verdadeira, e o terceiro argumento diz que dummy_exp recebe valor 0, caso EXP>0 seja falso.
+
+yi=0   se   exp> 0yi=0   se   exp> 0
+
+yi=1   se   exp≤ 0yi=1   se   exp≤ 0
+
+#Variáveis Dependentes
+Munic_Exp$dummy_exp <-ifelse( Munic_Exp$EXP>0 , 1 , 0)
+Existem 1413 municípios exportadores.
+
+table(Munic_Exp$dummy_exp)
+   0    1 
+4157 1413
+Agora vamos ajustar nosso modelo de probabilidade linear:
+
+yi=β0+β1lnvaindi+β2lnvaindi+β3lnvaservi+uiyi=β0+β1ln⁡vaindi+β2ln⁡vaindi+β3ln⁡vaservi+ui
+
+problin <-lm(dummy_exp ~ lVA_IND + lVA_SERV + lVA_AGRO + factor(REGIAO), data=Munic_Exp)
+O objeto problin contém os resultados do modelo de probabilidade linear. A função lm é a mesma utilizada para ajuste de um modelo de regressão linear com variável dependente quantitativa. Ao declararmos factor(REGIAO) estamos avisando para o procedimento lm que a variável de região é categórica.
+
+Vamos visualizar os parâmetros estimados através do comando summary:
+
+summary(problin)
