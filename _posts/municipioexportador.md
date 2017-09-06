@@ -63,3 +63,15 @@ EXP<-read.csv("C:/Econometria/Dados/EXP_2013_MUN.csv")
 
 Vamos dar uma olhada no data frame EXP.
 
+
+
+Os dados de exportação contém as informações: Ano (CO_ANO), Mês de exportação (CO_MES), Código do produto exportado (CO_NCM_POS), país de destino das exportações (CO_PAIS), unidade da federação (CO_UF), porto (CO_PORTO), código do município (CO_MUN_GEO), peso dos produtos exportados (KG_LIQUIDO) e valor de exportação (VL_FOB).
+
+Vamos agregar esta base de dados e utilizar somente o total anual exportado em 2013 por município. A agregação da base de dados por ano é feita com a função summaryBy pertencente ao pacote doBy.
+
+install.packages("doBy") 
+library(doBy)
+Exp2013 <-summaryBy(VL_FOB ~ CO_MUN_GEO , data=EXP , FUN=c(sum))
+Onde VL_FOG é variável quantitativa que desejamos somar e CO_MUN_GEO é uma variável categórica contendo o código do município. A opção FUN=c(sum) indica uma operação de soma, que será repetida para cada município. Os resultados serão armazenados no data.frame “Exp2013”.
+
+Em seguida vamos renomear as variáveis do código do município e o valor total exportado. Os nomes COD_MUN e EXP são mais intuitivos.
