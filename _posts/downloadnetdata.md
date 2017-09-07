@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Econometric Patrick: Baixando Dados da Internet"
+date:   2017-07-09 14:36:23
+permalink: /patrick-post.html
+markdown: kramdown
+kramdown:
+  input: GFM
+---
+
+  
+  # Baixando Dados da Internet
+
+
+:::
+1. Download de arquivos CSV da internet.
+2. Importação de arquivos CSV e EXCEL.
+3. Junção (*merge*) de bases de dados no R.
+:::
+
+
+## Introdução
+
+Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções download.file e unzip no R! :satisfied:
+
+    
+    
+```
+install.packages("utils") 
+library(utils)
+download.file( "http://www.mdic.gov.br/balanca/bd/MUN_SH4_2011_A_2013.zip" ,
+               destfile="C:/Econometria/MUN_SH4_2011_A_2013.zip" )
+ 
+unzip(zipfile="C:/Econometria/MUN_SH4_2011_A_2013.zip", exdir="C:/Econometria/Dados" )
+```
+
+
+No comando download.file a opção url indica o site onde encontra-se o arquivo compactado e a opção destfile é o local onde você deseja salvar seu arquivo ZIP.
+
+Você deverá modificar o caminho "C:/Econometria" para a pasta correspondente na sua máquina. Não esqueça de colocar as barras invertidas. A opção exdir do comando unzip irá criar uma nova pasta no seu computador (*_C:/Econometria/Dados_*) onde armazenará os arquivos formato CSV que foram extraídos.
+
+Agora vamos carregar um data.frame com o arquivo CSV contendo os dados de exportação já descompactados:
+
+```
+EXP<-read.csv("C:/Econometria/Dados/EXP_2013_MUN.csv")
+```
+
+Vamos dar uma olhada no data frame EXP.
+
+
+
+
+<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
