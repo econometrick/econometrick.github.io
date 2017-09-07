@@ -2,7 +2,7 @@
 layout: post
 title:  "Econometric Patrick: Baixando Dados da Internet"
 date:   2017-07-09 14:36:23
-permalink: /patrick-post.html
+permalink: /downloaddata-post.html
 markdown: kramdown
 kramdown:
   input: GFM  
