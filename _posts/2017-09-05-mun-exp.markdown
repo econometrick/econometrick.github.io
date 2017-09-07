@@ -36,7 +36,6 @@ Vamos utilizar algumas funcionalidades importantes do R.
 ## Introdução
 O modelo de *probabilidade linear* nada mais é que o método dos mínimos quadrados ordinários quando a variável dependente é binária (y=0 ou y=1).
 
-$$y_{i} = \beta_{0} + \beta_{1} x_{i}$$
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=y_{i}&space;=&space;\beta_{0}&space;&plus;&space;\beta_{1}&space;x_{i}&space;&plus;&space;\epsilon_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{i}&space;=&space;\beta_{0}&space;&plus;&space;\beta_{1}&space;x_{i}&space;&plus;&space;\epsilon_{i}" title="y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i}" /></a>
 
@@ -45,7 +44,7 @@ $$y_{i} = \beta_{0} + \beta_{1} x_{i}$$
 
 Vamos utilizar os dados de PIB municipal do IBGE. Nossa variável dependente será o fato de um município ser ou não ser exportador.
 
-Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções download.file e unzip no R! :satisfied:
+Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções *download.file* e *unzip* no R! :satisfied:
 
     
     
