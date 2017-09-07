@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Patrick Tentando Tentando"
+title:  "Econometric Patrick Tutorial: Municípios Exportadores"
 date:   2017-07-06 14:36:23
 permalink: /patrick-post.html
 markdown: kramdown
@@ -9,7 +9,6 @@ kramdown:
 ---
 
 <span class="image featured"><img src="/images/pic05.jpg" alt=""></span>
-
 
 
 
@@ -23,11 +22,13 @@ Neste *post* vamos aprender ajustar um modelo probabilístico para os município
 
 Vamos utilizar algumas funcionalidades importantes do R.
 
+<p style="background-color:lightgray;">
 1. Download de arquivos zipados disponíveis na internet.
 2. Extração de arquivos ZIP.
 3. Importação de arquivos CSV e EXCEL.
 4. Junção (*merge*) de bases de dados no R.
 5. Análise de um modelo de probabilidade linear e modelo logit.
+</p>
 
 ## Introdução
 O modelo de *probabilidade linear* nada mais é que o método dos mínimos quadrados ordinários quando a variável dependente é binária (y=0 ou y=1).
@@ -40,25 +41,20 @@ $$y_{i} = \beta_{0} + \beta_{1} x_{i}$$
 y_{i} = \beta_{0} + \beta_{1} x_{i}
 \end{equation}
 
-\begin{foo}
-y_{i} = \beta_{0} + \beta_{1} x_{i}
-\end{foo}
+::: warning
+*here be dragons*
+:::
 
 
-\begin{equation}
-\sum_{\forall i}{x_i^{2}}
-\end{equation}
-or inline equations
-
-$\sum_{\forall i}{x_i^{2}}$
 
 
 Vamos utilizar os dados de PIB municipal do IBGE. Nossa variável dependente será o fato de um município ser ou não ser exportador.
 
 Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções download.file e unzip no R! :satisfied:
 
-
-``
+    
+    
+``js
 install.packages("utils") 
 library(utils)
 download.file( "http://www.mdic.gov.br/balanca/bd/MUN_SH4_2011_A_2013.zip" ,
@@ -74,7 +70,7 @@ Você deverá modificar o caminho "C:/Econometria" para a pasta correspondente n
 
 Agora vamos carregar um data.frame com o arquivo CSV contendo os dados de exportação já descompactados:
 
-``
+``js
 EXP<-read.csv("C:/Econometria/Dados/EXP_2013_MUN.csv")
 ``
 
@@ -113,6 +109,11 @@ Vamos ganhar um pouco de memória excluindo a base de dados EXP:
 rm(list="EXP")
 ``
 
+// Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+    
 Agora vamos repetir os mesmos passos para a base de PIB Municipal. Vamos baixar os dados de PIB com o comando de download e fazer a extração de arquivos ZIP	.
 
 ``
@@ -131,7 +132,7 @@ Munic <- read_excel("C:/Learning/BlogQUORA/Dados/base.xls")
 
 Vamos renomear as variáveis desse data.frame colocando nomes mais intuitivos:
 
-``
+``js
 #Nomeando as colunas
 names(Munic)[1]  <- "ANO"
 names(Munic)[2]  <- "COD_UF"
