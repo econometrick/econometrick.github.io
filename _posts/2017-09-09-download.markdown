@@ -10,43 +10,44 @@ kramdown:
 ---
 
 
-
   # Baixando Dados da Internet
 
 :::
-1. Download de arquivos CSV da internet.
-2. Importação de arquivos CSV e EXCEL.
-3. Junção (*merge*) de bases de dados no R.
+1. Download de arquivos EXCEL da internet.
+2. Importação de arquivos EXCEL.
+3. Junção (*append*) de bases de dados no R.
 :::
 
 
 ## Introdução
 
-Neste *post* vamos trabalhar com dados do portal _Scimagojr_.
-Trata-se de um importante repositório de dados.
+Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
-No R, você pode baixar diretamente as informações por ano utilizando o comando *download.file*! :satisfied:
+![Caption for the picture.](/path/to/image.png)
 
-   $$y_{i}=\beta_{0}+x_{i}\beta_{0}$$
-   
-   $y_{i}=\beta_{0}+x_{i}\beta_{0}$
-    
+
+## Download dos Indicadores no R!
+No R, você pode baixar diretamente as informações por ano utilizando a livraria *httr*! :satisfied:
+
+
 ```
-install.packages("utils") 
-library(utils)
-download.file( "http://www.mdic.gov.br/balanca/bd/MUN_SH4_2011_A_2013.zip" ,
-               destfile="C:/Econometria/MUN_SH4_2011_A_2013.zip" )
- 
-unzip(zipfile="C:/Econometria/MUN_SH4_2011_A_2013.zip", exdir="C:/Econometria/Dados" )
+install.packages("httr")
+library('httr')
+url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
+POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
 ```
+PBS: Você deverá modificar o caminho "C:/Users/Patrick/Documents/" para a pasta correspondente na sua máquina. E não esqueça das barras invertidas.
+
+## Download dos Indicadores através de Loop!
+
+Como estamos interessados em organizar um *data.frame* conténdo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
 
 
-No comando download.file a opção url indica o site onde encontra-se o arquivo compactado e a opção destfile é o local onde você deseja salvar seu arquivo ZIP.
-
-Você deverá modificar o caminho "C:/Econometria" para a pasta correspondente na sua máquina. Não esqueça de colocar as barras invertidas. A opção exdir do comando unzip irá criar uma nova pasta no seu computador (*_C:/Econometria/Dados_*) onde armazenará os arquivos formato CSV que foram extraídos.
+ A opção exdir do comando unzip irá criar uma nova pasta no seu computador (*_C:\Learning\Econometrick_*) onde armazenará os arquivos formato CSV que foram extraídos.
 
 Agora vamos carregar um data.frame com o arquivo CSV contendo os dados de exportação já descompactados:
 
+## Leitura dos Dados EXCEL no R!
 ```
 EXP<-read.csv("C:/Econometria/Dados/EXP_2013_MUN.csv")
 ```
