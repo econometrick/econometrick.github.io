@@ -23,7 +23,9 @@ kramdown:
 
 Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções download.file e unzip no R! :satisfied:
 
-    
+   $$y_{i}=\beta_{0}+x_{i}\beta_{0}$$
+   
+   $y_{i}=\beta_{0}+x_{i}\beta_{0}$
     
 ```
 install.packages("utils") 
