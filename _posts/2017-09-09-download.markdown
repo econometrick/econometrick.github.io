@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Econometric Patrick: Baixando Dados da Internet"
+title:  "Baixando Dados Científicos da Scimagojr"
+author: Econometrick Patrick
 date:   2017-07-09 14:36:23
 permalink: /downloaddata-post.html
 markdown: kramdown
@@ -8,9 +9,9 @@ kramdown:
   input: GFM  
 ---
 
-  
-  # Baixando Dados da Internet
 
+
+  # Baixando Dados da Internet
 
 :::
 1. Download de arquivos CSV da internet.
@@ -21,7 +22,10 @@ kramdown:
 
 ## Introdução
 
-Você pode baixar diretamente da internet os dados de importação e PIB municipal em formato ZIP. Porém, é mais divertido fazer isto com as funções download.file e unzip no R! :satisfied:
+Neste *post* vamos trabalhar com dados do portal _Scimagojr_.
+Trata-se de um importante repositório de dados.
+
+No R, você pode baixar diretamente as informações por ano utilizando o comando *download.file*! :satisfied:
 
    $$y_{i}=\beta_{0}+x_{i}\beta_{0}$$
    
