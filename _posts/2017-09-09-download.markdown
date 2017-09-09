@@ -109,7 +109,6 @@ scimago <- rbind(scimagojr2012,scimagojr2013,scimagojr2014,scimagojr2015,scimago
 
 
 Fazer o download da programação R [aqui](http://example.com). 
-:kissing_closed_eyes:
 
 
 <span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
