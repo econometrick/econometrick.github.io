@@ -23,11 +23,11 @@ kramdown:
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
-![Site de Indicadores Científicos.](https://github.com/econometrick/econometrick.github.io/blob/master/images/scimagojr.jpg)
+![Site de Indicadores Científicos.](master/images/scimagojr.jpg)
 
-Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
+Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.:thumbsup:
 
-![Copiando endereço do arquivo.](https://github.com/econometrick/econometrick.github.io/blob/master/images/copiar%20endereco.png)
+![Copiando endereço do arquivo.](master/images/copiar%20endereco.png)
 
 ## Download dos Indicadores no R!
 
@@ -86,7 +86,7 @@ for (ano in 2012:2016) {
 
 ```
 
-Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?)
+Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?:thumbsup:)
 
 ```
 scimagojr2012$ano<-2012
