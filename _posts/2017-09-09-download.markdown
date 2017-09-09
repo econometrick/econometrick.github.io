@@ -15,17 +15,17 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
 
 ## Introdução: 
 
-Neste post vamos seguir o seguinte roteiro
-
-1. Download de arquivos EXCEL da internet.
-2. Importação de arquivos EXCEL.
-3. Junção (*append*) de bases de dados no R.
+<h2>Neste post vamos seguir o seguinte roteiro</h2>
+<ul>
+  <li>1. Download de arquivos EXCEL da internet.</li>
+  <li>2. Importação de arquivos EXCEL.</li>
+  <li>3. Junção (*append*) de bases de dados no R.</li>
+</ul>  
 
 
 <span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
 
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
-
 
 
 <span class="image featured"><img src="/images/copiar%20endereco.png" alt="" >Site de Indicadores Científicos</span>
