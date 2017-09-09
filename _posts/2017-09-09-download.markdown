@@ -23,12 +23,15 @@ kramdown:
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
-![Caption for the picture.](/path/to/image.png)
+![Site de Indicadores Científicos.](https://github.com/econometrick/econometrick.github.io/blob/master/images/scimagojr.jpg)
 
+Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
+
+![Copiando endereço do arquivo.](https://github.com/econometrick/econometrick.github.io/blob/master/images/copiar%20endereco.png)
 
 ## Download dos Indicadores no R!
-No R, você pode baixar diretamente as informações por ano utilizando a livraria *httr*! :satisfied:
 
+Você programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! :satisfied:
 
 ```
 install.packages("httr")
