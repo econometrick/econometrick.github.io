@@ -7,7 +7,7 @@ permalink: /downloaddata-post.html
 markdown: kramdown
 ---
 
-<span class="image featured"><img src="/images/pic06.jpg" alt=""></span>
+<span class="image featured"><img src="/images/pic06.jpg" alt="" style="width:304px;height:228px;"></span>
 
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
@@ -35,7 +35,7 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
 
 
-<pre style="background-color:LIGHTGRAY;">
+<pre style="background-color:LIGHTGRAY; font-size:22px;">
   <code>
 install.packages("httr")
 library('httr')
