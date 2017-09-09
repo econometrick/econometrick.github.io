@@ -33,24 +33,46 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 
 Você programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! :satisfied:
 
-```
+
+```pyhton
 install.packages("httr")
 library('httr')
 url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
 POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
 ```
-PBS: Você deverá modificar o caminho "C:/Users/Patrick/Documents/" para a pasta correspondente na sua máquina. E não esqueça das barras invertidas.
+O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
+O argumento *write_disk* grava no disco o arquivo scimagojr2015.xls.
+
+OBS: Você deverá modificar o caminho **C:/Users/Patrick/Documents/** para a pasta correspondente na sua máquina. E não esqueça das barras invertidas.
 
 ## Download dos Indicadores através de Loop!
 
 Como estamos interessados em organizar um *data.frame* conténdo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
 
 
- A opção exdir do comando unzip irá criar uma nova pasta no seu computador (*_C:\Learning\Econometrick_*) onde armazenará os arquivos formato CSV que foram extraídos.
+```
+#Fazendo o download do site através de loop!
+for (ano in 2012:2016) {
+    site  <- "http://www.scimagojr.com/countryrank.php?year="
+    site2 <-  paste(site , ano ,"&out=xls", sep="")
+    #print(site2)
+    way = "C:/Learning/Econometric/scimagojr"
+    way2 <- paste(way , ano ,".xlsx", sep="")
+    Sys.sleep(1)
+    POST(site2,write_disk(way2))
+}
+```
 
-Agora vamos carregar um data.frame com o arquivo CSV contendo os dados de exportação já descompactados:
+O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls".
+
+Os arquivos serão salvos em *C:/Learning/Econometric/scimagojr*.
+
+
 
 ## Leitura dos Dados EXCEL no R!
+
+Agora vamos fazer a leitura de dados no R e criar um *data.frame* com os indicadores cientíricos ao longo do tempo. Vamos começar com a boblioteca xlsx.
+
 ```
 EXP<-read.csv("C:/Econometria/Dados/EXP_2013_MUN.csv")
 ```
