@@ -117,11 +117,7 @@ Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame ún
 
 
 
-<div class="image">
-  <img src="/images/r-project-logo.jpg" alt="" />
-  <h2>Fazer o download da programação R [aqui](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R).   </h2>
-</div>
+Fazer o download da [programação R](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R)
 
-
-<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
+<span class="image featured"><img src="/images/r-project-logo.jpg" alt="" /></span>
 
