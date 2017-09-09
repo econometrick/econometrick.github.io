@@ -25,7 +25,6 @@ Neste post vamos seguir o seguinte roteiro
 <span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
 
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
-:thumbsup:
 
 
 
@@ -70,7 +69,7 @@ for (ano in 2012:2016) {
 O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls". Fazemos uso do comando *paste* duas vezes, uma vez para compor o nome completo do site e uma segunda vez para compor o caminho local onde os arquivos serão salvos (*C:/Learning/Econometric/scimagojr*).
 :sunglasses: 
 
-Finalmente :relaxed: dentro do *loop* fazemos a chamada do comando *POST* para acessar os endereços *site2* e salvar os arquivos EXCEL em *way2*.
+Finalmente dentro do *loop* fazemos a chamada do comando *POST* para acessar os endereços *site2* e salvar os arquivos EXCEL em *way2*.
 
 
 
@@ -90,8 +89,7 @@ for (ano in 2012:2016) {
 
 ```
 
-Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?)
-:thumbsup:
+Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?).
 
 ```
 scimagojr2012$ano<-2012
