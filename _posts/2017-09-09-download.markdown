@@ -28,7 +28,7 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
 
 
-<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" style="max-height:80%; max-width:80%;text-align:center; vertical-align:middle">Site de Indicadores Científicos</span>
+<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" style="max-height:50%; max-width:50%;text-align:center; vertical-align:middle">Site de Indicadores Científicos</span>
 
 ## Download dos Indicadores no R!
 
@@ -119,5 +119,5 @@ Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame ún
 
 Fazer o download da [programação R](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R)
 
-<span class="image featured"><img src="/images/r-project-logo.jpg" alt="R" style="max-height:70%; max-width:70%;text-align:center; vertical-align:middle"/></span>
+<span class="image featured"><img src="/images/r-project-logo.jpg" alt="R" style="max-height:50%; max-width:50%;text-align:center; vertical-align:middle"/></span>
 
