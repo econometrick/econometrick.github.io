@@ -7,7 +7,7 @@ permalink: /downloaddata-post.html
 markdown: kramdown
 ---
 
-<span class="image featured"><img src="/images/pic06.jpg" alt="" style="width:150px;height:278px;"></span>
+<span class="image featured"><img src="/images/pic06.jpg" alt="Scimagojr"></span>
 
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
@@ -28,7 +28,7 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 
 
 
-<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" style="width:200px;height:333px;">Site de Indicadores Científicos</span>
+<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" >Site de Indicadores Científicos</span>
 
 ## Download dos Indicadores no R!
 
@@ -120,5 +120,5 @@ Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame ún
 Fazer o download da programação R [aqui](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R). 
 
 
-<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt="" style="width:240px;height:222px;"></span>
+<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
 
