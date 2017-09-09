@@ -28,7 +28,7 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
 
 
-<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" style="max-width: 70px; height: auto;text-align:center; vertical-align:middle">Site de Indicadores Científicos</span>
+<span class="image featured"><img src="/images/copiar%20endereco.png" alt="" style="max-height:80%; max-width:80%;text-align:center; vertical-align:middle">Site de Indicadores Científicos</span>
 
 ## Download dos Indicadores no R!
 
