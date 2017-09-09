@@ -35,13 +35,16 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
 :satisfied:
 
-
-```python
+<pre>
+  <code>
 install.packages("httr")
 library('httr')
 url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
 POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
-```
+  </code>
+</pre>
+
+
 - O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
 - O argumento *write_disk* grava no disco o arquivo scimagojr2015.xls.
 
@@ -52,7 +55,8 @@ OBS: Você deverá modificar o caminho **C:/Users/Patrick/Documents/** para a pa
 Como estamos interessados em organizar um *data.frame* contendo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
 
 
-```
+<pre>
+  <code>
 #Fazendo o download do site através de loop!
 for (ano in 2012:2016) {
     site  <- "http://www.scimagojr.com/countryrank.php?year="
@@ -64,7 +68,10 @@ for (ano in 2012:2016) {
     POST(site2,write_disk(way2))
     print(way2)
 }
-```
+  </code>
+</pre>
+
+
 
 O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls". Fazemos uso do comando *paste* duas vezes, uma vez para compor o nome completo do site e uma segunda vez para compor o caminho local onde os arquivos serão salvos (*C:/Learning/Econometric/scimagojr*).
 :sunglasses: 
@@ -77,8 +84,10 @@ Finalmente dentro do *loop* fazemos a chamada do comando *POST* para acessar os 
 ## Leitura dos Dados EXCEL no R!
 
 Agora vamos fazer a leitura de dados no R e criar um *data.frame* com os indicadores científicos ao longo do tempo. Vamos começar com a biblioteca *xlsx*.
-```
-#Leitura dos dados
+
+<pre>
+  <code>
+  #Leitura dos dados no EXCEL
 library(xlsx)
 
 for (ano in 2012:2016) {
@@ -87,23 +96,36 @@ for (ano in 2012:2016) {
   assign( paste0("scimagojr",ano)       , read.xlsx2( way2 , sheetName = "Sheet1" ) ) 
 }
 
-```
+  </code>
+</pre>
 
 Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?).
 
-```
+
+<pre>
+  <code>
 scimagojr2012$ano<-2012
 scimagojr2013$ano<-2013
 scimagojr2014$ano<-2014
 scimagojr2015$ano<-2015
 scimagojr2016$ano<-2016
-```
+
+  </code>
+</pre>
+
+
+
 
 Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame único que podemos utilizar em nossa análises.
 
-```
-scimago <- rbind(scimagojr2012,scimagojr2013,scimagojr2014,scimagojr2015,scimagojr2016)
-```
+
+
+<pre>
+  <code>
+   scimago <- rbind(scimagojr2012,scimagojr2013,scimagojr2014,scimagojr2015,scimagojr2016)
+  </code>
+</pre>
+
 
 
 Fazer o download da programação R [aqui](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R). 
