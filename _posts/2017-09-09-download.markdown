@@ -34,16 +34,9 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 
 Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
 
-pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
-}
-
 
 <pre>
-  <code>
+  <code style="background-color:LIGHTSLATEGRAY;">
 install.packages("httr")
 library('httr')
 url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
@@ -63,7 +56,7 @@ Como estamos interessados em organizar um *data.frame* contendo os indicadores p
 
 
 <pre>
-  <code>
+  <code BGCOLOR="#000000" TEXT="#FFFF00">
 #Fazendo o download do site através de loop!
 for (ano in 2012:2016) {
     site  <- "http://www.scimagojr.com/countryrank.php?year="
