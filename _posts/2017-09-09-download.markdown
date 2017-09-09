@@ -27,7 +27,10 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.:thumbsup:
 
 
-<span class="image featured"><img src="/images/copiar%20endereco.png" alt="">Site de Indicadores Científicos</span>
+
+
+
+<span class="image featured"><img src="https://github.com/econometrick/econometrick.github.io/blob/master/images/copiar%20endereco.png" alt=""></span>
 
 ## Download dos Indicadores no R!
 
