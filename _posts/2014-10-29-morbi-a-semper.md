@@ -5,7 +5,7 @@ date:   2014-08-31 14:36:23
 ---
 
 <span class="image featured"><img src="/images/pic03.jpg" alt=""></span>
-Neste rápido tutorial, vamos aprender algumas das diversas possibilidades de importação de dados EXCEL para o R. Para isto vamos utilizar uma base de dados conténdo o [PIB Municipal](https://github.com/econometrick/econometrick.github.io/blob/master/base_de_dados_2010_2014_txt.zip) para o período de 2010-2014. 
+Neste rápido tutorial, vamos aprender algumas das diversas possibilidades de importação de dados EXCEL para o R. Para isto vamos utilizar uma base de dados conténdo o [PIB Municipal](http://servicodados.ibge.gov.br/Download/Download.ashx?u=ftp.ibge.gov.br/Pib_Municipios/2014/base/base_de_dados_2010_2014_txt.zip) para o período de 2010-2014. 
 
 Curabitur tempor quis lorem eget vestibulum. Aenean vel lacinia orci, ac sollicitudin felis. Nunc eros libero, posuere nec massa ac, consectetur sollicitudin elit. Duis tincidunt nunc et neque egestas rhoncus. Curabitur ut euismod lorem, ut rutrum neque. Nullam at sem eros. Nam interdum lectus non cursus viverra.
 
