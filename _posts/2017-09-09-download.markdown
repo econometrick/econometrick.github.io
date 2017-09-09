@@ -8,13 +8,12 @@ markdown: kramdown
 ---
 
 
-  # Baixando Dados da Internet
+## Neste post vamos seguir o seguinte roteiro
 
-:::
+
 1. Download de arquivos EXCEL da internet.
 2. Importação de arquivos EXCEL.
 3. Junção (*append*) de bases de dados no R.
-:::
 
 
 ## Introdução
@@ -24,20 +23,20 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
 
 <span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
 
-Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.:thumbsup:
+Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.
+:thumbsup:
 
 
 
-
-
-<span class="image featured"><img src="https://github.com/econometrick/econometrick.github.io/blob/master/images/copiar%20endereco.png" alt=""></span>
+<span class="image featured"><img src="/images/copiar%20endereco.png" alt="">Site de Indicadores Científicos</span>
 
 ## Download dos Indicadores no R!
 
-Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! :satisfied:
+Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
+:satisfied:
 
 
-```pyhton
+```python
 install.packages("httr")
 library('httr')
 url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
@@ -67,7 +66,8 @@ for (ano in 2012:2016) {
 }
 ```
 
-O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls". Fazemos uso do comando *paste* duas vezes, uma vez para compor o nome completo do site e uma segunda vez para compor o caminho local onde os arquivos serão salvos (*C:/Learning/Econometric/scimagojr*).:sunglasses: 
+O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls". Fazemos uso do comando *paste* duas vezes, uma vez para compor o nome completo do site e uma segunda vez para compor o caminho local onde os arquivos serão salvos (*C:/Learning/Econometric/scimagojr*).
+:sunglasses: 
 
 Finalmente :relaxed: dentro do *loop* fazemos a chamada do comando *POST* para acessar os endereços *site2* e salvar os arquivos EXCEL em *way2*.
 
@@ -89,7 +89,8 @@ for (ano in 2012:2016) {
 
 ```
 
-Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?:thumbsup:)
+Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?)
+:thumbsup:
 
 ```
 scimagojr2012$ano<-2012
@@ -106,7 +107,8 @@ scimago <- rbind(scimagojr2012,scimagojr2013,scimagojr2014,scimagojr2015,scimago
 ```
 
 
-Fazer o download da programação R [aqui](http://example.com). :kissing_closed_eyes:
+Fazer o download da programação R [aqui](http://example.com). 
+:kissing_closed_eyes:
 
 
 <span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
