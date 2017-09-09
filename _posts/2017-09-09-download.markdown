@@ -8,17 +8,16 @@ markdown: kramdown
 ---
 
 
-## Neste post vamos seguir o seguinte roteiro
+Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
+
+## Introdução: 
+
+Neste post vamos seguir o seguinte roteiro
 
 1. Download de arquivos EXCEL da internet.
 2. Importação de arquivos EXCEL.
 3. Junção (*append*) de bases de dados no R.
-
-
-## Introdução
-
-Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
 
 <span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
