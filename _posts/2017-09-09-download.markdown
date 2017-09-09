@@ -31,7 +31,7 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 
 ## Download dos Indicadores no R!
 
-Você programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! :satisfied:
+Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! :satisfied:
 
 
 ```pyhton
@@ -40,14 +40,14 @@ library('httr')
 url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
 POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
 ```
-O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
-O argumento *write_disk* grava no disco o arquivo scimagojr2015.xls.
+- O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
+- O argumento *write_disk* grava no disco o arquivo scimagojr2015.xls.
 
-OBS: Você deverá modificar o caminho **C:/Users/Patrick/Documents/** para a pasta correspondente na sua máquina. E não esqueça das barras invertidas.
+OBS: Você deverá modificar o caminho **C:/Users/Patrick/Documents/** para a pasta correspondente na sua máquina. 
 
 ## Download dos Indicadores através de Loop!
 
-Como estamos interessados em organizar um *data.frame* conténdo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
+Como estamos interessados em organizar um *data.frame* contendo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
 
 
 ```
@@ -55,17 +55,19 @@ Como estamos interessados em organizar um *data.frame* conténdo os indicadores 
 for (ano in 2012:2016) {
     site  <- "http://www.scimagojr.com/countryrank.php?year="
     site2 <-  paste(site , ano ,"&out=xls", sep="")
-    #print(site2)
+    print(site2)
     way = "C:/Learning/Econometric/scimagojr"
     way2 <- paste(way , ano ,".xlsx", sep="")
     Sys.sleep(1)
     POST(site2,write_disk(way2))
+    print(way2)
 }
 ```
 
-O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls".
+O comando *paste* faz a colagem do caminho "http://www.scimagojr.com/countryrank.php?year=" junto com os anos (2012 a 2016) e o complemento "&out=xls". Fazemos uso do comando *paste* duas vezes, uma vez para compor o nome completo do site e uma segunda vez para compor o caminho local onde os arquivos serão salvos (*C:/Learning/Econometric/scimagojr*). 
 
-Os arquivos serão salvos em *C:/Learning/Econometric/scimagojr*.
+Finalmente dentro do *loop* fazemos a chamada do comando *POST* para acessar os endereços *site2* e salvar os arquivos EXCEL em *way2*.
+
 
 
 
