@@ -23,11 +23,13 @@ kramdown:
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
 
-![Site de Indicadores Científicos.](master/images/scimagojr.jpg)
+
+<span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
 
 Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos na pasta de _download_ da sua máquina.:thumbsup:
 
-![Copiando endereço do arquivo.](master/images/copiar%20endereco.png)
+
+<span class="image featured"><img src="/images/copiar%20endereco.png" alt="">Site de Indicadores Científicos</span>
 
 ## Download dos Indicadores no R!
 
