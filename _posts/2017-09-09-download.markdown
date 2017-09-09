@@ -7,7 +7,7 @@ permalink: /downloaddata-post.html
 markdown: kramdown
 ---
 
-<span class="image featured"><img src="/images/pic06.jpg" alt="" style="width:304px;height:228px;"></span>
+<span class="image featured"><img src="/images/pic06.jpg" alt="" style="width:100px;height:228px;"></span>
 
 
 Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um recurso de avaliação científica para comparar universidades e instituições de pesquisa em todo o mundo. Por exemplo, o indicador SJR (*SCImago Journal Rank*) é uma medida de influência científica de periódicos acadêmicos que explica o número de citações recebidas por um jornal e seu prestígio entre as demais revistas. 
@@ -35,7 +35,7 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
 
 
-<pre style="background-color:LIGHTGRAY; font-size:22px;">
+<pre style="background-color:LIGHTGRAY; font-size:17px; color:blue;">
   <code>
 install.packages("httr")
 library('httr')
@@ -55,7 +55,7 @@ OBS: Você deverá modificar o caminho **C:/Users/Patrick/Documents/** para a pa
 Como estamos interessados em organizar um *data.frame* contendo os indicadores para vários anos, vamos aproveitar a funcionalidade dos _loops_.
 
 
-<pre style="background-color:LIGHTGRAY;">
+<pre style="background-color:LIGHTGRAY; font-size:17px; color:blue;">
   <code>
 #Fazendo o download do site através de loop!
 for (ano in 2012:2016) {
@@ -85,7 +85,7 @@ Finalmente dentro do *loop* fazemos a chamada do comando *POST* para acessar os 
 
 Agora vamos fazer a leitura de dados no R e criar um *data.frame* com os indicadores científicos ao longo do tempo. Vamos começar com a biblioteca *xlsx*.
 
-<pre style="background-color:LIGHTGRAY;">
+<pre style="background-color:LIGHTGRAY; font-size:17px; color:blue;">
   <code>
 #Leitura dos dados no EXCEL
 library(xlsx)
@@ -102,7 +102,7 @@ for (ano in 2012:2016) {
 Em cada um dos arquivos vamos criar uma coluna de identificação dos anos (Você possui alguma ideia/sugestão de como fazemos isto através de loop?).
 
 
-<pre style="background-color:LIGHTGRAY;">
+<pre style="background-color:LIGHTGRAY; font-size:17px; color:blue;">
   <code>
 scimagojr2012$ano<-2012
 scimagojr2013$ano<-2013
@@ -115,7 +115,7 @@ scimagojr2016$ano<-2016
 
 Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame único que podemos utilizar em nossa análises.
 
-<pre style="background-color:LIGHTGRAY;">
+<pre style="background-color:LIGHTGRAY; font-size:17px; color:blue;">
   <code>
    scimago <- rbind(scimagojr2012,scimagojr2013,scimagojr2014,scimagojr2015,scimagojr2016)
   </code>
@@ -126,4 +126,5 @@ Finalmente utilizar o *rbind* para "empilhar" os dados e criar um data.frame ún
 Fazer o download da programação R [aqui](https://github.com/econometrick/econometrick.github.io/blob/master/R/scimagojr_httr.R). 
 
 
-<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt=""></span>
+<span class="image featured"><img src="http://miriadna.com/desctopwalls/images/max/Mountain-from-the-sand.jpg" alt="" style="width:230px;height:185px;"></span>
+
