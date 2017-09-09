@@ -33,7 +33,14 @@ Ao clicar em _Download data_ o arquivo EXCEL contendo os indicadores são salvos
 ## Download dos Indicadores no R!
 
 Você pode programar o R para baixar diretamente as informações utilizando a biblioteca *httr*! 
-:satisfied:
+
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
+
 
 <pre>
   <code>
