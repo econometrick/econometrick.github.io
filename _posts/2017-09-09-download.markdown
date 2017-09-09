@@ -5,8 +5,6 @@ author: Econometrick Patrick
 date:   2017-07-09 14:36:23
 permalink: /downloaddata-post.html
 markdown: kramdown
-kramdown:
-  input: GFM  
 ---
 
 
