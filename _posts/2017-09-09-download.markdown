@@ -22,6 +22,9 @@ Neste *post* vamos trabalhar com dados do portal _Scimagojr_. O portal é um rec
   <li>3. Junção (*append*) de bases de dados no R.</li>
 </ul>  
 
+$
+y_{i} = \beta_{0} + \beta_{1} x_{1} + \epsilon_{i}
+$
 
 <span class="image featured"><img src="/images/scimagojr.jpg" alt="">Site de Indicadores Científicos</span>
 
@@ -44,6 +47,12 @@ POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
   </code>
 </pre>
 
+```
+install.packages("httr")
+library('httr')
+url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
+POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
+```
 
 - O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
 - O argumento *write_disk* grava no disco o arquivo scimagojr2015.xls.
