@@ -45,6 +45,12 @@ POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
   </code>
 </pre>
 
+```
+install.packages("httr")
+library('httr')
+url <- 'http://www.scimagojr.com/countryrank.php?year=2015&out=xls'
+POST(url,write_disk("C:/Users/Patrick/Documents/scimagojr2015.xls"))
+```
 
 
 - O comando POST "entra" no seu browser o seguinte link: http://www.scimagojr.com/countryrank.php?year=2015&out=xls
